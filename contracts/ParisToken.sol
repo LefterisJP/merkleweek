@@ -4,6 +4,13 @@ import "./Token.sol";
 
 contract ParisToken is Token {
 
+
+    function ParisToken(uint amount) {
+        // huge premine
+        balances[msg.sender] = amount;
+        totalSupply = amount;
+    }
+
     function transfer(address _to, uint256 _value) returns (bool success) {
         if (balances[msg.sender] >= _value && balances[_to] + _value > balances[_to]) {
             balances[msg.sender] -= _value;

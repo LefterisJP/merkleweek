@@ -13,13 +13,13 @@ contract ContractCustodian {
     }
 }
 
-contract CustodianFlawed {
+contract CustodianFixed {
 
     mapping (address => uint) public tokens;
     address public custodian;
 
 
-    function CustodianFlawed(address c) payable {
+    function CustodianFixed(address c) payable {
         custodian = c;
     }
 
