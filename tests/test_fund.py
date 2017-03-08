@@ -20,7 +20,7 @@ def test_flawed_fund(chain, accounts, web3):
     # everyone's ROI
     contract.transact({'from': accounts[4], 'value': balance * 4})
 
-    # And now the fund pays out everyon's share
+    # And now the fund pays out everyone's share
     previous_balances = {}
     for i in range(0, 4):
         previous_balances[accounts[i]] = web3.eth.getBalance(accounts[i])
