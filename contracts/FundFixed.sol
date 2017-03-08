@@ -38,4 +38,14 @@ contract FundFixed {
         total_balance += msg.value;
         // this is either for donations or outside income
     }
+
+    // example of iterating over arbitrarily large collection
+    // already have the total_contributions variable but this function
+    // is just to showcase loops that are okay.
+    function getSumOfParticipantsContributions() constant returns (uint){
+        uint sum = 0;
+        for (uint i = 0; i < all_participants.length; i++) {
+            sum += contributions[all_participants[i]];
+        }
+    }
 }
