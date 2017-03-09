@@ -26,7 +26,7 @@ You will need to have python in your system and solidity version 0.4.8 and not h
 - Create a new directory for the chaindata of this private network. For our example I will call it `merkleweek`.
 
 - Start geth with the following arguments:
-  ```geth --datadir ~/merklechain --networkid 90317 --bootnodes "enode://4022a711922d9c8f83a4762a1d501c8c4c15454924f6152fe20e20fca552495c821b1a45c68d1757e704005057215fbfb20701613a433647a3885350b97a4751@192.168.1.239:30303" --rpc console```
+  ```geth --datadir ~/merklechain --networkid 90317 --bootnodes "enode://4022a711922d9c8f83a4762a1d501c8c4c15454924f6152fe20e20fca552495c821b1a45c68d1757e704005057215fbfb20701613a433647a3885350b97a4751@10.0.1.124:30303" --rpc console```
 
 	  - Replace `~/merklechain` with the name of the directory you created for the private net
 	  - Replace the `--bootnode` and its argument with the bootnode I will give you at the time of the conference. This will be my node.
