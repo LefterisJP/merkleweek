@@ -1,3 +1,8 @@
+## Etherpad for sharing information
+
+
+https://public.etherpad-mozilla.org/p/merkleweek
+
 ## Setting up our testing environment
 
 We will be using the go-ethereum client and the [populus](https://github.com/pipermerriam/populus) smart contract testing framework along with solidity.
