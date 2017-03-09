@@ -53,8 +53,7 @@ As an example of this problem and its solution in action please have a look at t
 
 ### Generating Randomness through block data
 
-Generating randomness in a deterministic blockchain system such as ethereum is not an easy task. For the most trivial of cases you can generate random data by using block data as a randomness seed as we can see in RandomFlawed.sol. But the problem with such approaches is that depending on block data we render ourselves vulnerable to miners. A miner can know the timestamp and the blockhash of a block in advance and insert a transaction in the same block all the while knowing the value of the random number.
-
+Generating randomness in a deterministic blockchain system such as ethereum is not an easy task. For the most trivial of cases you can generate random data by using block data as a randomness seed as we can see in RandomFlawed.sol. But the problem with such approaches is that depending on block data we render ourselves vulnerable to miners. A miner can influence the number by not publishing a block with an unwanted outcome and forfeit the 5 ETH reward. If more than 5 ETH is at stake on the outcome of the random number then people should not use such a hacky random generator.
 
 A possible solution would be a DAO that people can participate in and all together generate random numbers. Examples are: [RanDAO](https://github.com/randao/randao) and MakerDAO.
 
