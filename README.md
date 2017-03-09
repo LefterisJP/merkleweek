@@ -87,6 +87,20 @@ An example of this vulnerability in action can be seen in `test_discount_pool.py
 
 The fix is quite simple and can be seen in `test_discount_pool.py::test_fixed_discount_pool()` and the `DiscountPoolFixed.sol` contract. Always do the bookkeeping change before sending the money out.
 
+
+### Keep fallback functions simple
+
+Fallback functions should be extremely simple. They should either do nothing or at most just throw an event. The reason is simple. The intrinsic `send()` functionality of solidity forwards only 21000 gas which is enough for only the most basic operations. If your fallback function contains more complicated functionality then it will simply fail when someone tries to send it funds.
+
+As an example of this problem take a look at `test_fallback.py()`
+
+
+### Do not assume contracts start with 0 balance
+
+Do not assume that the the contract you create starts with a 0 balance. Contract accounts are predictable since they are derived from the creator's address and the creator's nonce. Someone may try to throw off your accounting by predicting your new contract's address before you deploy it and sending some ether to it.
+
+The solution to this is the same as the one on the aforementioned `this.balance` section.
+
 ### Escape Hatches
 
 Solidity is actively developed by many people but as all software it can have bugs. In November 2016 a bug that could overwrite variables was discovered that affected all contracts up to that day. Thankfully the bug's conditions were quite rare and as such not many contracts were affected.
